@@ -1,0 +1,41 @@
+.highlight div:first-child{
+  padding:1rem 0;
+}
+
+.pagination{
+  display: flex;
+  justify-content: start;
+
+}
+
+.pagination .page-item{
+  margin-right: 1rem;
+  background-color: #f3f3f3;
+  padding:1rem;
+}
+
+.page-link{
+  display: block;
+  width:100%;
+  height:100%;
+
+}
+.page-link:hover{
+  color:white;
+  background-color: #fff;
+}
+
+h1,h2,h3,h4,h5{
+  font-size:1.5rem;
+  margin:1rem 0 ;
+}
+
+ol li,ul li{
+  margin:0.5rem;
+
+}
+
+table,thead,td,th{
+  border:1px solid gray;
+  border-collapse: collapse;
+}
