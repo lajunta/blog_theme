@@ -1,8 +1,10 @@
 {{ define "main" }}
-<div class="text-2xl text-gray-600 mb-4">{{.Title}}</div>
-<div class="text-gray-300 mb-3">
-  <span class="mr-4"> {{ .Params.tags }}</span>
-  <time datetime="{{ .Date.Format " 2006-01-02T15:04:05Z0700" }}" class="text-gray-200">{{ .Date.Format "Mon, Jan 2, 2006"  }}</time>
+<div class="text-2xl text-gray-700 mb-4">{{.Title}}</div>
+<div class="mb-3 text-xs">
+  <span datetime="{{ .Date.Format " 2006-01-02 15:04" }}" class="text-gray-300">{{ .Date.Format "2006-01-02 15:04"
+    }}</span>
+  <span class="mr-4 text-gray-300 italic"> <a href=/{{.File.Dir}}>{{ .File.Dir }}</a></span>
 </div>
+<hr>
 {{.Content}}
 {{end}}

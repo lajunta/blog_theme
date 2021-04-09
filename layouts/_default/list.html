@@ -1,14 +1,11 @@
 {{ define "main"}}
-<div class="text-2xl text-gray-600 mb-5 ">
-  {{.Title }}
-</div>
 {{ range .Pages }}
-<p class="mb-3 text-xl text-gray-600"><a href={{ .Permalink }}>{{ .Title }}</a></p>
+<p class="mb-3 text-2xl text-gray-700"><a href={{ .Permalink }}>{{ .Title }}</a></p>
 <div class="text-gray-300 mb-3">
-  <span class="mr-4"> <a href=/{{.Type }}>{{.Type}}</a></span>
-  <time datetime="{{ .Date.Format " 2006-01-02T15:04:05Z0700" }}" class="text-gray-200">
-    {{ .Date.Format "Mon, Jan 2, 2006" }}
-  </time>
+  <span class="text-gray-300 text-xs italic">
+    {{ .Date.Format "2006-01-02 15:04" }}
+  </span>
+  <span class="mr-4 text-xs italic text-gray-300"> <a href=/{{.File.Dir }}>{{.File.Dir}}</a></span>
 </div>
 {{ end }}
 

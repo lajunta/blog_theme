@@ -1,26 +1,22 @@
 {{ define "main" -}}
-<div>
-  {{ range .Paginator.Pages.ByLastmod -}}
-  <article class="mb-5">
-    <h1 class="text-2xl text-gray-600 mb-4">
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </h1>
 
-    <div class="text-gray-300 mb-3">
-      [
-      {{ range $x := split .File.Dir "/" }}
-      <span class="mr-1"> <a href=/{{ $x }}>{{ $x }}</a></span>
-      {{ end }}
-      ]
-      <time datetime="{{ .Date.Format " 2006-01-02T15:04:05Z0700" }}" class="text-gray-200">
-        {{ .Date.Format "2006-01-02 03:04" }}
-      </time>
-    </div>
+{{ range .Paginator.Pages.ByDate.Reverse -}}
+<div class="mb-5">
+  <p class="text-2xl text-gray-700 mb-4">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </p>
 
-  </article>
-  {{- end }}
+  <div class="mb-3 text-xs">
+    <span class="text-gray-300 italic">
+      {{ .Date.Format "2006-01-02 03:04" }}
+    </span>
+    <span class="mr-1 italic text-gray-300"> <a href=/{{ .File.Dir }}>{{ .File.Dir }}</a></span>
+  </div>
 
-  <div class="mt-3"></div>
-  {{ template "_internal/pagination.html" . }}
 </div>
+{{- end }}
+
+<div class="mt-3"></div>
+{{ template "_internal/pagination.html" . }}
+
 {{- end }}
